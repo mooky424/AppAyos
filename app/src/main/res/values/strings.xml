@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Lab 4 - Camera</string>
+    <string name="fileAuthority">salvador.labs</string>
+    <string name="user_image">User image</string>
+</resources>

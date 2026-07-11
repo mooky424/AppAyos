@@ -1,0 +1,14 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("io.realm:realm-gradle-plugin:10.19.0")
+    }
+}
+
+plugins {
+    alias(libs.plugins.android.application) apply false
+}
