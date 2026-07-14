@@ -59,7 +59,7 @@ public class Login extends AppCompatActivity {
         if (sharedPrefs.getBoolean("rememberMe", false)) {
             String uuid = sharedPrefs.getString("user", "");
             User user = realm.where(User.class).equalTo("uuid", uuid).findFirst();
-            inputUsername.setText(user.getName());
+            inputUsername.setText(user.getUsername());
             inputPassword.setText(user.getPassword());
             checkBoxSharedPref.setChecked(true);
         }
@@ -72,7 +72,7 @@ public class Login extends AppCompatActivity {
                 String password = inputPassword.getText().toString();
                 boolean rememberMe = checkBoxSharedPref.isChecked();
 
-                User user = realm.where(User.class).equalTo("name",username).findFirst();
+                User user = realm.where(User.class).equalTo("username",username).findFirst();
 
                 if (user == null) {
                     toastNoUser.show();

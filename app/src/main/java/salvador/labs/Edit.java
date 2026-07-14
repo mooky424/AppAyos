@@ -61,7 +61,7 @@ public class Edit extends AppCompatActivity {
         String userUuid = getIntent().getStringExtra("UUID");
         User user = realm.where(User.class).equalTo("uuid", userUuid).findFirst();
 
-        inputUsername.setText(user.getName());
+        inputUsername.setText(user.getUsername());
         inputPassword.setText(user.getPassword());
         inputPasswordConfirm.setText(user.getPassword());
         selectedImage = user.getImage();
@@ -91,7 +91,7 @@ public class Edit extends AppCompatActivity {
                     return;
                 }
 
-                User existingUser = realm.where(User.class).equalTo("name", username).findFirst();
+                User existingUser = realm.where(User.class).equalTo("username", username).findFirst();
                 if (existingUser != null && !existingUser.getUuid().equals(userUuid)) {
                     toastUserExists.show();
                     return;
@@ -101,7 +101,7 @@ public class Edit extends AppCompatActivity {
                     @Override
                     public void execute(Realm realm) {
                         User user = realm.where(User.class).equalTo("uuid", userUuid).findFirst();
-                        user.setName(username);
+                        user.setUsername(username);
                         user.setPassword(password);
                         user.setImage(selectedImage);
                     }

@@ -83,7 +83,7 @@ public class Register extends AppCompatActivity {
                     toastMatchPassword.show();
                     return;
                 }
-                if (realm.where(User.class).equalTo("name",username).findFirst() != null) {
+                if (realm.where(User.class).equalTo("username",username).findFirst() != null) {
                     toastUserExists.show();
                     return;
                 }
@@ -93,7 +93,7 @@ public class Register extends AppCompatActivity {
                             @Override
                             public void execute(Realm realm) {
                                 User user = realm.createObject(User.class, UUID.randomUUID().toString());
-                                user.setName(username);
+                                user.setUsername(username);
                                 user.setPassword(password);
                                 user.setImage(selectedImage);
                             }

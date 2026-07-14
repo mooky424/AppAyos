@@ -3,16 +3,36 @@ package salvador.labs;
 import java.util.UUID;
 
 import io.realm.RealmObject;
+import io.realm.annotations.Index;
 import io.realm.annotations.PrimaryKey;
 
 public class User extends RealmObject {
     @PrimaryKey
     private String uuid = UUID.randomUUID().toString();
-    private String name;
+
+    private String username;
     private String password;
+    private boolean isTechnician;
+    private boolean isAdmin;
     private String image;
 
     public User() {
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -23,20 +43,20 @@ public class User extends RealmObject {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public boolean isTechnician() {
+        return isTechnician;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTechnician(boolean technician) {
+        isTechnician = technician;
     }
 
-    public String getUuid() {
-        return uuid;
+    public boolean isAdmin() {
+        return isAdmin;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 
     public String getImage() {
@@ -50,10 +70,12 @@ public class User extends RealmObject {
     @Override
     public String toString() {
         return "User{" +
-                "pk=" + uuid +
-                ", username='" + name + '\'' +
+                "uuid='" + uuid + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", image=" + image +
+                ", isTechnician=" + isTechnician +
+                ", isAdmin=" + isAdmin +
+                ", image='" + image + '\'' +
                 '}';
     }
 }

@@ -59,7 +59,7 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User, UserAdapter.View
         User user = getItem(position);
         String userUuid = user.getUuid();
 
-        holder.textUsername.setText(user.getName());
+        holder.textUsername.setText(user.getUsername());
         holder.textPassword.setText(user.getPassword());
         String image = user.getImage();
         File imageFile = new File(image);

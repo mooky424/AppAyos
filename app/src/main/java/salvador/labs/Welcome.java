@@ -52,8 +52,8 @@ public class Welcome extends AppCompatActivity {
                 .findFirst();
 
         String message = "";
-        if (user.getName() != null) {
-             message = "Welcome " + user.getName() + "!!";
+        if (user.getUsername() != null) {
+             message = "Welcome " + user.getUsername() + "!!";
         }
         if (rememberMe) {
             message += " You will be remembered!";
