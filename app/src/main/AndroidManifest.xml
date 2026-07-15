@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <!-- NEEDED TO ACCESS CAMERA and GALLERY FOR ANDROID 11+ -->
-    <!-- https://stackoverflow.com/questions/62535856/intent-resolveactivity-returns-null-in-api-30/64204646#64204646        -->
+    <!-- https://stackoverflow.com/questions/62535856/intent-resolveactivity-returns-null-in-api-30/64204646#64204646 -->
     <queries>
         <intent>
             <action android:name="android.media.action.IMAGE_CAPTURE" />
@@ -32,13 +32,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab4">
-
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="@string/fileAuthority"
             android:exported="false"
             android:grantUriPermissions="true">
-
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_provider_path" />
@@ -72,6 +70,10 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ImageActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".UserRequestsLists"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
