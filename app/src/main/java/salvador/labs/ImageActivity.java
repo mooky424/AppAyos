@@ -72,7 +72,7 @@ public class ImageActivity extends AppCompatActivity
         fileAuthority = getResources().getString(R.string.fileAuthority);
 
         // initialize crop image view
-        cropImageView = findViewById(R.id.cropImageView);
+        cropImageView = findViewById(R.id.submitPhoto_cropImageView);
 
         // initialize all buttons
         capture = findViewById(R.id.capture);

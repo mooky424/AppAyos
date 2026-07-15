@@ -5,10 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateRequest">
+    tools:context=".SubmitPhoto">
 
     <LinearLayout
-        android:id="@+id/createRequest_container"
+        android:id="@+id/submitPhoto_container"
         android:layout_width="409dp"
         android:layout_height="729dp"
         android:orientation="vertical"
@@ -16,70 +16,84 @@
         tools:layout_editor_absoluteY="1dp">
 
         <LinearLayout
-            android:id="@+id/createRequest_header_container"
+            android:id="@+id/submitPhoto_header_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/createRequest_back"
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/submitPhoto_back"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
-                android:id="@+id/createRequest_header"
-                android:layout_width="match_parent"
+                android:id="@+id/submitPhoto_header"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="TextView" />
         </LinearLayout>
-
-        <ImageButton
-            android:id="@+id/pressToUploadphoto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/inputbox" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/editrequestTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <FrameLayout
+                android:id="@+id/submitPhoto_FrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#FFcccccc"
+                android:padding="5dp">
 
-            <EditText
-                android:id="@+id/requestTitle_input"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
-                android:text="Name" />
+                <com.theartofdev.edmodo.cropper.CropImageView
+                    android:id="@+id/submitPhoto_cropImageView"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+
+                    />
+            </FrameLayout>
+
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/requestDescription"
+        <LinearLayout
+            android:id="@+id/submitPhoto_takeOrretake"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/requestDescription_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Button" />
+
+        </LinearLayout>
 
         <Button
-            android:id="@+id/createRequest_button"
+            android:id="@+id/submitPhoto_browse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Button" />
+
+        <Button
+            android:id="@+id/submitPhoto_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
