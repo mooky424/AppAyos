@@ -76,6 +76,10 @@
             android:name=".UserRequestsLists"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".Tracker_RequestsMade"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
