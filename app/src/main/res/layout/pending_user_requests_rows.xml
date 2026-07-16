@@ -7,7 +7,7 @@
     android:padding="15dp">
 
     <LinearLayout
-        android:id="@+id/request_recyclerView_rowcontainer"
+        android:id="@+id/pendingRequest_recyclerView_rowcontainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -28,14 +28,26 @@
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher" />
 
-        <TextView
-            android:id="@+id/requestTitle_prefilled"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:text="Request Title"
-            android:textColor="#FFFFFF" />
+        <LinearLayout
+            android:id="@+id/request_row_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/requestTitle_prefilled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:text="Request Title"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/completeRequest_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+        </LinearLayout>
+
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
