@@ -27,7 +27,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <Button
+            <ImageButton
                 android:id="@+id/createRequest_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/requestTitle_input"
+                android:id="@+id/editrequestTitle_input"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

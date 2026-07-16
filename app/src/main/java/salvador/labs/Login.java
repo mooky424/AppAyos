@@ -23,6 +23,7 @@ public class Login extends AppCompatActivity {
     private Button buttonRegister;
     private Realm realm;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

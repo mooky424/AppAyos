@@ -13,24 +13,58 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/editUser_container_header"
+            android:id="@+id/addUser_container_header"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/editUser_back"
+            <ImageButton
+                android:id="@+id/addUser_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Button" />
 
             <TextView
-                android:id="@+id/editUser_header"
+                android:id="@+id/userslist_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="Add User" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/addUser_usernamestring"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView" />
+
+        <EditText
+            android:id="@+id/addUser_inputUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/addUser_passwordstring"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <EditText
+            android:id="@+id/addUser_inputPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/addUser_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

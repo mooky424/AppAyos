@@ -18,14 +18,14 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/editUser_back"
+                android:id="@+id/addUser_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Button" />
 
             <TextView
-                android:id="@+id/editUser_header"
+                android:id="@+id/userslist_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
@@ -38,14 +38,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/completeRequest_requeststring"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/completeRequest_prefilledRequestname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -53,7 +53,13 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/completeRequest_requestDescriptionstring"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/completeRequest_prefilledRequestDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

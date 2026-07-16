@@ -43,6 +43,7 @@
             tools:layout_editor_absoluteY="75dp" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerViewOFUsernames"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
         </androidx.recyclerview.widget.RecyclerView>
