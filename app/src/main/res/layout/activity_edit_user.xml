@@ -13,20 +13,20 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/addUser_container_header"
+            android:id="@+id/editUser_container_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/addUser_back"
+                android:id="@+id/editUser_back"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Button" />
 
             <TextView
-                android:id="@+id/userslist_header"
+                android:id="@+id/editUser_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
@@ -34,12 +34,13 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/editUserrecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/saveEditedUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Button" />
