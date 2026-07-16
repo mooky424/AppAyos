@@ -37,11 +37,11 @@ public class Register extends AppCompatActivity {
             return insets;
         });
 
-        inputUsername = findViewById(R.id.username);
-        inputPassword = findViewById(R.id.password);
-        inputPasswordConfirm = findViewById(R.id.passwordConfirm);
-        technicianCheckbox = findViewById(R.id.checkBox);
-        buttonSave = findViewById(R.id.save);
+        inputUsername = findViewById(R.id.inputUsername);
+        inputPassword = findViewById(R.id.inputPassword);
+        inputPasswordConfirm = findViewById(R.id.inputPasswordConfirm);
+        technicianCheckbox = findViewById(R.id.technicianCheckbox);
+        buttonSave = findViewById(R.id.buttonSave);
         realm = Realm.getDefaultInstance();
 
         buttonSave.setOnClickListener(view -> registerUser());

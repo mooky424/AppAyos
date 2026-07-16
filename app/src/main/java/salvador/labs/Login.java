@@ -35,10 +35,10 @@ public class Login extends AppCompatActivity {
             return insets;
         });
 
-        inputUsername = findViewById(R.id.username);
-        inputPassword = findViewById(R.id.password);
-        buttonSignIn = findViewById(R.id.signin);
-        buttonRegister = findViewById(R.id.register);
+        inputUsername = findViewById(R.id.inputUsername);
+        inputPassword = findViewById(R.id.inputPassword);
+        buttonSignIn = findViewById(R.id.buttonSignIn);
+        buttonRegister = findViewById(R.id.buttonRegister);
         realm = Realm.getDefaultInstance();
 
         buttonSignIn.setOnClickListener(view -> signIn());
