@@ -49,52 +49,40 @@
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:padding="8dp"
         android:background="@drawable/navbar_bg"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
             android:id="@+id/home_bottomnav"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="8dp"
-            android:background="#EFAB4C"
-            android:cropToPadding="true"
-            android:padding="12dp"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="centerCrop"
+            android:src="@drawable/home_btn" />
 
         <ImageButton
             android:id="@+id/tracker_bottomnav"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="60dp"
-            android:background="#EFAB4C"
-            android:cropToPadding="true"
-            android:padding="12dp"
-            android:paddingLeft="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="centerCrop"
+            android:src="@drawable/tracker_btn" />
 
         <ImageButton
             android:id="@+id/settings_bottomnav"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="60dp"
-            android:background="#EFAB4C"
-            android:cropToPadding="true"
-            android:padding="12dp"
-            android:paddingLeft="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="centerCrop"
+            android:src="@drawable/settings_btn" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
