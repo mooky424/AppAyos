@@ -1,8 +1,10 @@
-package salvador.labs;
+package appayos.project;
 
 import java.util.Arrays;
 import java.util.Date;
 import java.util.UUID;
+
+import androidx.annotation.Nullable;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -19,6 +21,8 @@ public class Photo extends RealmObject {
     private String path;
     private Date createdAt;
     private String type;
+    @Nullable
+    private String request;
 
     public Photo() {
 
@@ -61,10 +65,18 @@ public class Photo extends RealmObject {
     }
 
     public void setType(String type) {
-        if (Arrays.asList(TYPES).contains(type.toLowerCase())) {
+        if (type == null || !Arrays.asList(TYPES).contains(type.toLowerCase())) {
             throw new IllegalArgumentException("type must be request, completion, or user");
         }
-        this.type = type;
+        this.type = type.toLowerCase();
+    }
+
+    public String getRequest() {
+        return request;
+    }
+
+    public void setRequest(String request) {
+        this.request = request;
     }
 
     @Override
@@ -75,6 +87,7 @@ public class Photo extends RealmObject {
                 ", path='" + path + '\'' +
                 ", createdAt=" + createdAt +
                 ", type='" + type + '\'' +
+                ", request='" + request + '\'' +
                 '}';
     }
 }

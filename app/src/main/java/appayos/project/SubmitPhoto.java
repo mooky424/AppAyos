@@ -1,39 +1,37 @@
-package salvador.labs;
+package appayos.project;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class EditRequest extends AppCompatActivity {
+public class SubmitPhoto extends AppCompatActivity {
 
-    //for final proj
-    ImageButton editRequest_back; //imagebutton leads back to UserRequestsLists.java
-
-    ImageButton pressToUploadPhoto3;//user submits different image here
-
-    EditText editrequestTitle_input; //user edits title here
-
-    EditText editrequestDescription_input3; //user edits description here
-
-    Button editRequest_button3; //submit edited request
-    //end
+    private static final int PHOTO_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_edit_request);
+        setContentView(R.layout.activity_submit_photo);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        startActivityForResult(new Intent(this, ImageActivity.class), PHOTO_REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PHOTO_REQUEST_CODE) {
+            setResult(resultCode, data);
+            finish();
+        }
     }
 }

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "salvador.labs"
+    namespace = "appayos.project"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "salvador.labs"
+        applicationId = "appayos.project"
         minSdk = 24
         targetSdk = 29
         versionCode = 1

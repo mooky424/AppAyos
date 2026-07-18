@@ -1,4 +1,4 @@
-package salvador.labs;
+package appayos.project;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -21,6 +21,7 @@ public class Request extends RealmObject {
     private String status;
     private Date createdAt;
     private String acceptedBy;
+    private String statusDescription;
 
     public Request() {
     }
@@ -62,10 +63,10 @@ public class Request extends RealmObject {
     }
 
     public void setStatus(String status) {
-        if (Arrays.asList(STATUSES).contains(status.toLowerCase())) {
-            throw new IllegalArgumentException("type must be request, completion, or user");
+        if (status == null || !Arrays.asList(STATUSES).contains(status.toLowerCase())) {
+            throw new IllegalArgumentException("status must be posted, accepted, or completed");
         }
-        this.status = status;
+        this.status = status.toLowerCase();
     }
 
     public Date getCreatedAt() {
@@ -84,6 +85,14 @@ public class Request extends RealmObject {
         this.acceptedBy = acceptedBy;
     }
 
+    public String getStatusDescription() {
+        return statusDescription;
+    }
+
+    public void setStatusDescription(String statusDescription) {
+        this.statusDescription = statusDescription;
+    }
+
     @Override
     public String toString() {
         return "Request{" +
@@ -94,6 +103,7 @@ public class Request extends RealmObject {
                 ", status='" + status + '\'' +
                 ", createdAt=" + createdAt +
                 ", acceptedBy='" + acceptedBy + '\'' +
+                ", statusDescription='" + statusDescription + '\'' +
                 '}';
     }
 }
