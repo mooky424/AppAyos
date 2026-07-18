@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F1F1F9"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/notifications_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/bree_serif"
+        android:text="Notifications"
+        android:textColor="#271F30"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/notifications_empty"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:fontFamily="@font/nunito_medium"
+        android:gravity="center"
+        android:text="No notifications yet"
+        android:textColor="#271F30"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notifications_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="360dp" />
+
+    <Button
+        android:id="@+id/notifications_test_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#271F30"
+        android:fontFamily="@font/nunito_medium"
+        android:text="Send test notification"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
