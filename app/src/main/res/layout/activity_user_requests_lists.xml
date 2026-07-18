@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserRequestsLists">
+    tools:context=".UserRequestsLists"
+    android:background="#F1F1F9">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewrequests"
@@ -24,11 +25,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
+        android:fontFamily="@font/bree_serif"
         android:text="Requests Catalog"
+        android:textColor="#271F30"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/notificationBell"
@@ -63,15 +67,14 @@
         android:id="@+id/createRequest"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginEnd="24dp"
         android:background="?attr/selectableItemBackground"
         android:contentDescription="Add new request"
         android:padding="4dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/plus_button"
-        android:layout_marginEnd="16dp"
+        android:src="@drawable/plusbutton"
         app:layout_constraintBottom_toTopOf="@id/bottom_bar_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
         android:id="@+id/bottom_bar_container"

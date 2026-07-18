@@ -5,7 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SubmitPhoto">
+    tools:context=".SubmitPhoto"
+    android:background="#F1F1F9"
+    android:padding="16dp">
 
     <LinearLayout
         android:id="@+id/submitPhoto_container"
@@ -13,58 +15,61 @@
         android:layout_height="729dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteY="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/submitPhoto_header_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/submitPhoto_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_launcher_background" />
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="Back Button"
+                android:scaleType="centerInside"
+                android:src="@drawable/back_finaldesign" />
 
             <TextView
                 android:id="@+id/submitPhoto_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:fontFamily="@font/bree_serif"
+                android:text="Submit Photo"
+                android:textColor="#282032"
+                android:textSize="24sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/submitPhoto_FrameLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="250dp"
+            android:layout_marginVertical="16dp"
+            android:background="@drawable/untitled_design__80_"
+            android:padding="5dp">
 
-            <FrameLayout
-                android:id="@+id/submitPhoto_FrameLayout"
+            <com.theartofdev.edmodo.cropper.CropImageView
+                android:id="@+id/submitPhoto_cropImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#FFcccccc"
-                android:padding="5dp">
+                android:layout_gravity="center" />
 
-                <com.theartofdev.edmodo.cropper.CropImageView
-                    android:id="@+id/submitPhoto_cropImageView"
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-
-                    />
-            </FrameLayout>
-
-        </LinearLayout>
+        </FrameLayout>
 
         <LinearLayout
             android:id="@+id/submitPhoto_takeOrretake"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
@@ -72,14 +77,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Take"
+                android:backgroundTint="#282032"
+                android:fontFamily="@font/nunito_medium"
+                android:layout_marginEnd="10dp"/>
 
             <Button
                 android:id="@+id/retake"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Retake"
+                android:backgroundTint="#282032"
+                android:fontFamily="@font/nunito_medium"
+                />
 
         </LinearLayout>
 
@@ -87,13 +98,17 @@
             android:id="@+id/submitPhoto_browse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Browse"
+            android:backgroundTint="#282032"
+            android:fontFamily="@font/nunito_medium"/>
 
         <Button
             android:id="@+id/submitPhoto_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Button"
+            android:backgroundTint="#282032"
+            android:fontFamily="@font/nunito_medium"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,38 +5,58 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UsersList">
+    tools:context=".UsersList"
+    android:background="#F1F1F9"
+    android:padding="16dp">
 
     <LinearLayout
         android:id="@+id/usersList_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/addUser_container_header"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp">
 
             <ImageButton
                 android:id="@+id/userslist_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Button" />
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="Back Button"
+                android:scaleType="centerInside"
+                android:src="@drawable/back_finaldesign"/>
 
             <TextView
                 android:id="@+id/userslist_header"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_weight="1"
+                android:fontFamily="@font/bree_serif"
+                android:text="User List"
+                android:textColor="#282032"
+                android:textSize="24sp"
+                android:textStyle="bold"  />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/users"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:layout_constraintTop_toBottomOf="parent"
+            tools:layout_editor_absoluteX="-10dp" >
 
         </androidx.recyclerview.widget.RecyclerView>
 
@@ -44,15 +64,13 @@
             android:id="@+id/addUser"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_gravity="end"
             android:layout_marginEnd="16dp"
             android:background="?attr/selectableItemBackground"
             android:contentDescription="Add new request"
             android:padding="4dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/plus_button"
-            app:layout_constraintBottom_toTopOf="@id/bottom_bar_container"
-            app:layout_constraintEnd_toEndOf="parent" />
-
+            android:src="@drawable/plus_button" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

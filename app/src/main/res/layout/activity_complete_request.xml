@@ -5,36 +5,54 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CompleteRequest">
+    tools:context=".CompleteRequest"
+    android:background="#F1F1F9"
+    android:padding="16dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/completeRequest_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Button" />
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="Back Button"
+                android:scaleType="centerInside"
+                android:src="@drawable/back_finaldesign"  />
 
             <TextView
                 android:id="@+id/userslist_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_weight="1"
+                android:fontFamily="@font/bree_serif"
+                android:text="Complete Request"
+                android:textColor="#282032"
+                android:textSize="24sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/completeRequest_title_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
@@ -42,40 +60,66 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="Title:"
+                android:fontFamily="@font/nunito_medium"
+                android:textColor="#282032"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/completeRequest_prefilledRequestname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:fontFamily="@font/nunito_medium"
+                android:textColor="#282032"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:background="@drawable/inputbox"/>
         </LinearLayout>
 
         <TextView
             android:id="@+id/completeRequest_requestDescriptionstring"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Description:"
+            android:fontFamily="@font/nunito_medium"
+            android:textColor="#282032"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/completeRequest_prefilledRequestDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:fontFamily="@font/nunito_medium"
+            android:textColor="#282032"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:background="@drawable/inputbox"/>
 
         <ImageButton
             android:id="@+id/pressToUploadphoto2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/inputbox" />
+            android:layout_marginTop="16dp"
+            android:background="@drawable/safeguard_inputbox"
+            android:contentDescription="Upload request photo"
+            android:src="@drawable/untitled_design__78_" />
 
         <Button
             android:id="@+id/submitPhoto_submit2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#282032"
+            android:fontFamily="@font/nunito_medium"
+            android:text="Submit Photo"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
