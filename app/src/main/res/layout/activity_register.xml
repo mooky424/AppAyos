@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
-    android:background="#F1F1F9">
+    android:background="#F1F1F9"
+    tools:context=".Register">
 
     <ImageView
         android:id="@+id/official_logo"
@@ -25,34 +25,22 @@
     <LinearLayout
         android:id="@+id/register_container"
         android:layout_width="263dp"
-        android:layout_height="374dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.464">
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/bree_serif"
-            android:text="Sign Up"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="#271F30"
-            android:textSize="20sp" />
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/nunito_medium"
-            android:paddingBottom="10dp"
-            android:text="Username:" />
+            android:text="Username:"
+            android:textColor="#271F30" />
 
         <EditText
             android:id="@+id/inputUsername"
@@ -66,16 +54,17 @@
             android:hint="Username"
             android:inputType="text"
             android:padding="10dp"
-            android:paddingBottom="16dp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/nunito_medium"
-            android:text="Password:" />
+            android:text="Password:"
+            android:textColor="#271F30" />
 
         <EditText
             android:id="@+id/inputPassword"
@@ -89,7 +78,6 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:paddingBottom="16dp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -97,8 +85,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/nunito_medium"
-            android:text="Confirm Password:" />
+            android:text="Confirm Password:"
+            android:textColor="#271F30" />
 
         <EditText
             android:id="@+id/inputPasswordConfirm"
@@ -106,6 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
             android:layout_marginEnd="3dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/inputbox"
             android:ems="10"
             android:fontFamily="@font/nunito_medium"
@@ -119,21 +110,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/nunito_medium"
-            android:text="Technician" />
+            android:text="Technician"
+            android:textColor="#271F30" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/buttonSave"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:backgroundTint="#271F30"
         android:fontFamily="@font/nunito_medium"
         android:text="Create"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_container"
-        app:layout_constraintVertical_bias="0.357" />
+        app:layout_constraintEnd_toEndOf="@+id/register_container"
+        app:layout_constraintStart_toStartOf="@+id/register_container"
+        app:layout_constraintTop_toBottomOf="@+id/register_container" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

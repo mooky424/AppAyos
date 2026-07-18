@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#F1F1F9"
     android:padding="16dp"
-    tools:context=".EditUser">
+    tools:context=".AdminEditUser">
 
     <ScrollView
         android:layout_width="0dp"
@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/bree_serif"
-                    android:text="Change User Details"
+                    android:text="Edit User"
                     android:textColor="#282032"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -113,11 +113,28 @@
                 android:inputType="textPassword"
                 android:padding="10dp" />
 
+            <CheckBox
+                android:id="@+id/editUser_admin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/nunito_medium"
+                android:text="Admin"
+                android:textColor="#282032" />
+
+            <CheckBox
+                android:id="@+id/editUser_technician"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_medium"
+                android:text="Technician"
+                android:textColor="#282032" />
+
             <Button
                 android:id="@+id/saveEditedUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="#282032"
                 android:fontFamily="@font/nunito_medium"
                 android:text="Save" />

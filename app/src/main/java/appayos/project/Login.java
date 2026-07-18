@@ -1,4 +1,4 @@
-package salvador.labs;
+package appayos.project;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,12 +16,15 @@ import androidx.core.view.WindowInsetsCompat;
 import io.realm.Realm;
 
 public class Login extends AppCompatActivity {
+    private static final int ADMIN_BYPASS_TAPS = 5;
 
     private EditText inputUsername;
     private EditText inputPassword;
     private Button buttonSignIn;
     private Button buttonRegister;
+    private Button buttonAdmin;
     private Realm realm;
+    private int adminTapCount;
 
 
     @Override
@@ -39,11 +42,21 @@ public class Login extends AppCompatActivity {
         inputPassword = findViewById(R.id.inputPassword);
         buttonSignIn = findViewById(R.id.buttonSignIn);
         buttonRegister = findViewById(R.id.buttonRegister);
+        buttonAdmin = findViewById(R.id.buttonAdmin);
         realm = Realm.getDefaultInstance();
 
         buttonSignIn.setOnClickListener(view -> signIn());
         buttonRegister.setOnClickListener(view ->
                 startActivity(new Intent(Login.this, Register.class)));
+        buttonAdmin.setOnClickListener(view -> {
+            adminTapCount++;
+            if (adminTapCount == ADMIN_BYPASS_TAPS) {
+                adminTapCount = 0;
+                Intent intent = new Intent(Login.this, UsersList.class);
+                intent.putExtra(UsersList.EXTRA_ADMIN_BYPASS, true);
+                startActivity(intent);
+            }
+        });
     }
 
     private void signIn() {
@@ -66,15 +79,14 @@ public class Login extends AppCompatActivity {
             Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        SharedPreferences.Editor editor = getSharedPreferences("Lab4", MODE_PRIVATE).edit();
+        SharedPreferences.Editor editor = getSharedPreferences("AppAyos", MODE_PRIVATE).edit();
         editor.putString("user", user.getUuid());
         editor.putString("image", user.getImage());
         editor.apply();
 
         Class<?> destination;
         if (user.isAdmin()) {
-            destination = Admin.class;
+            destination = UsersList.class;
         } else if (user.isTechnician()) {
             destination = Tracker.class;
         } else {

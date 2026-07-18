@@ -1,4 +1,4 @@
-package salvador.labs;
+package appayos.project;
 
 import android.os.Bundle;
 import android.widget.Button;
