@@ -31,6 +31,35 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageButton
+        android:id="@+id/notificationBell"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="Notifications"
+        android:scaleType="centerInside"
+        android:src="@android:drawable/ic_popup_reminder"
+        android:tint="#271F30"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/notificationBadge"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/badge_bg"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
         android:id="@+id/createRequest"
         android:layout_width="80dp"
         android:layout_height="80dp"

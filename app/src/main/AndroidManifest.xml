@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <!-- NEEDED TO ACCESS CAMERA and GALLERY FOR ANDROID 11+ -->
     <!-- https://stackoverflow.com/questions/62535856/intent-resolveactivity-returns-null-in-api-30/64204646#64204646 -->

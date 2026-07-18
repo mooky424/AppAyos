@@ -2,6 +2,7 @@ package salvador.labs;
 
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import io.realm.Realm;
 
 public class UserRequestsLists extends AppCompatActivity {
 
@@ -23,6 +26,11 @@ public class UserRequestsLists extends AppCompatActivity {
 
     ImageButton settings_bottomnav; //bottom navigation button leading to Settings.java
     //end
+
+    ImageButton notificationBell;
+    TextView notificationBadge;
+    Realm badgeRealm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,5 +41,18 @@ public class UserRequestsLists extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        notificationBell = findViewById(R.id.notificationBell);
+        notificationBadge = findViewById(R.id.notificationBadge);
+        NotificationHelper.wireBell(this, notificationBell);
+        badgeRealm = NotificationHelper.observeBadge(this, notificationBadge);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (badgeRealm != null) {
+            badgeRealm.close();
+        }
+        super.onDestroy();
     }
 }

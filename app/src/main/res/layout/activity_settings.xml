@@ -103,7 +103,44 @@
             android:layout_height="wrap_content"
             android:text="Save" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/notificationToggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/nunito_medium"
+            android:text="Enable notifications" />
+
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/notificationBell"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="Notifications"
+        android:scaleType="centerInside"
+        android:src="@android:drawable/ic_popup_reminder"
+        android:tint="#271F30"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/notificationBadge"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/badge_bg"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
         android:id="@+id/bottom_bar_container"
