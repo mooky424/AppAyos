@@ -1,4 +1,4 @@
-package salvador.labs;
+package appayos.project;
 
 import android.Manifest;
 import android.app.NotificationChannel;
@@ -30,7 +30,7 @@ public class NotificationHelper {
     public static final String CHANNEL_ID = "appayos_notifications";
     private static final String CHANNEL_NAME = "AppAyos Notifications";
 
-    private static final String PREFS = "Lab4";
+    private static final String PREFS = "AppAyos";
     private static final String KEY_CURRENT_USER = "user";
     private static final String KEY_ENABLED = "notificationsEnabled";
 

@@ -1,4 +1,4 @@
-package salvador.labs;
+package appayos.project;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -31,7 +31,7 @@ public class NotificationsSheet extends BottomSheetDialogFragment {
 
         realm = Realm.getDefaultInstance();
         String currentUser = requireContext()
-                .getSharedPreferences("Lab4", 0)
+                .getSharedPreferences("AppAyos", 0)
                 .getString("user", "");
 
         RecyclerView recycler = view.findViewById(R.id.notifications_recycler);

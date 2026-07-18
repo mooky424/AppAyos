@@ -52,8 +52,8 @@ public class Login extends AppCompatActivity {
             adminTapCount++;
             if (adminTapCount == ADMIN_BYPASS_TAPS) {
                 adminTapCount = 0;
-                Intent intent = new Intent(Login.this, UsersList.class);
-                intent.putExtra(UsersList.EXTRA_ADMIN_BYPASS, true);
+                Intent intent = new Intent(Login.this, AdminUserList.class);
+                intent.putExtra(AdminUserList.EXTRA_ADMIN_BYPASS, true);
                 startActivity(intent);
             }
         });
@@ -86,11 +86,11 @@ public class Login extends AppCompatActivity {
 
         Class<?> destination;
         if (user.isAdmin()) {
-            destination = UsersList.class;
+            destination = AdminUserList.class;
         } else if (user.isTechnician()) {
-            destination = Tracker.class;
+            destination = TechnicianRequestList.class;
         } else {
-            destination = UserRequestsLists.class;
+            destination = UserRequestList.class;
         }
 
         Intent intent = new Intent(this, destination);

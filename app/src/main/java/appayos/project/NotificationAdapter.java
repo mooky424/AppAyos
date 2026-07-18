@@ -1,4 +1,4 @@
-package salvador.labs;
+package appayos.project;
 
 import android.content.Context;
 import android.graphics.Typeface;

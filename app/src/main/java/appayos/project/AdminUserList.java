@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-public class UsersList extends AppCompatActivity {
+public class AdminUserList extends AppCompatActivity {
     public static final String EXTRA_ADMIN_BYPASS = "admin_bypass";
 
     private ImageButton backButton;
@@ -27,7 +27,7 @@ public class UsersList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_users_list);
+        setContentView(R.layout.activity_admin_user_list);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -53,7 +53,7 @@ public class UsersList extends AppCompatActivity {
         RealmResults<User> userResults = realm.where(User.class).findAll();
         usersRecycler.setLayoutManager(new LinearLayoutManager(this));
         usersRecycler.setAdapter(new UserAdapter(this, userResults, userUuid -> {
-            Intent intent = new Intent(UsersList.this, AdminEditUser.class);
+            Intent intent = new Intent(AdminUserList.this, AdminUserEdit.class);
             intent.putExtra("UUID", userUuid);
             startActivity(intent);
         }));

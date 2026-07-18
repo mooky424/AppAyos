@@ -21,10 +21,10 @@ import java.util.UUID;
 
 import io.realm.Realm;
 
-public class CreateRequest extends AppCompatActivity {
+public class UserRequestCreate extends AppCompatActivity {
 
     //for final proj
-    ImageButton createRequest_back; //imagebutton leading back to UserRequestsLists.java
+    ImageButton createRequest_back; //imagebutton leading back to UserRequestList.java
 
     ImageButton pressToUploadPhoto;//imagebutton leading to SubmitPhoto.java
 
@@ -43,7 +43,7 @@ public class CreateRequest extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_create_request);
+        setContentView(R.layout.activity_user_request_create);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -97,7 +97,7 @@ public class CreateRequest extends AppCompatActivity {
                 photo.setRequest(request.getUuid());
             }
         }, () -> {
-            Toast.makeText(CreateRequest.this, "Request created", Toast.LENGTH_SHORT).show();
+            Toast.makeText(UserRequestCreate.this, "Request created", Toast.LENGTH_SHORT).show();
             finish();
         });
     }

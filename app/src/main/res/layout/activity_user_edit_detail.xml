@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#F1F1F9"
     android:padding="16dp"
-    tools:context=".EditUser">
+    tools:context=".UserEditDetail">
 
     <ScrollView
         android:layout_width="0dp"
@@ -26,14 +26,14 @@
             android:paddingBottom="16dp">
 
             <LinearLayout
-                android:id="@+id/editUser_container_header"
+                 android:id="@+id/editUser_container_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/editUser_back"
+                     android:id="@+id/editUser_back"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:background="?attr/selectableItemBackground"
@@ -42,7 +42,7 @@
                     android:src="@drawable/back_finaldesign" />
 
                 <TextView
-                    android:id="@+id/editUser_header"
+                     android:id="@+id/editUser_header"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -63,7 +63,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/changeUsername_input"
+                 android:id="@+id/changeUsername_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -83,7 +83,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/changePassword_input"
+                 android:id="@+id/changePassword_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -103,7 +103,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/changePasswordConfirm_input"
+                 android:id="@+id/changePasswordConfirm_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -114,7 +114,7 @@
                 android:padding="10dp" />
 
             <Button
-                android:id="@+id/saveEditedUser"
+                 android:id="@+id/saveEditedUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"

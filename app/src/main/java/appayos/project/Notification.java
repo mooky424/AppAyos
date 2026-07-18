@@ -1,4 +1,4 @@
-package salvador.labs;
+package appayos.project;
 
 import java.util.Date;
 import java.util.UUID;

@@ -68,22 +68,23 @@ public class Settings extends AppCompatActivity {
             seeAllUsers.setVisibility(Button.GONE);
         } else {
             seeAllUsers.setOnClickListener(view ->
-                    startActivity(new Intent(this, UsersList.class)));
+                    startActivity(new Intent(this, AdminUserList.class)));
         }
 
         changeUserDetailsButton.setOnClickListener(view -> {
-            Intent intent = new Intent(this, EditUser.class);
+            Intent intent = new Intent(this, UserEditDetail.class);
             intent.putExtra("UUID", userUuid);
             startActivity(intent);
         });
         logoutButton.setOnClickListener(view -> logout());
         Class<?> dashboard = currentUser.isTechnician()
-                ? Tracker.class
-                : UserRequestsLists.class;
+                ? TechnicianRequestList.class
+                : UserRequestList.class;
         homeBottomNav.setOnClickListener(view ->
                 startActivity(new Intent(this, dashboard)));
         trackerBottomNav.setOnClickListener(view ->
-                startActivity(new Intent(this, Tracker.class)));
+                startActivity(new Intent(this,
+                        currentUser.isTechnician() ? UserPendingRequestList.class : TechnicianRequestList.class)));
         settingsBottomNav.setOnClickListener(view -> recreate());
 
         notificationToggle.setChecked(NotificationHelper.isEnabled(this));

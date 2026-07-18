@@ -17,31 +17,25 @@ import io.realm.Realm;
 import io.realm.RealmResults;
 import io.realm.Sort;
 
-public class UserRequestsLists extends AppCompatActivity {
+public class UserPendingRequestList extends AppCompatActivity {
 
     //for final proj
-    RecyclerView recyclerViewrequests; //shows all existing requests
-
-    ImageButton createRequest; //button leading to CreateRequest.java
-
-    ImageButton home_bottomnav; //bottom navigation button leading to UserRequestsList.java
-
-    ImageButton tracker_bottomnav; //bottom navigation button leading to Tracker.java
-
-    ImageButton settings_bottomnav; //bottom navigation button leading to Settings.java
+    RecyclerView recyclerViewpendingRequests; //recyclerview for all Requests not completed (the layout is pending_user_requests_rows.xml)
     //end
 
+    Realm realm;
+    ImageButton home_bottomnav;
+    ImageButton tracker_bottomnav;
+    ImageButton settings_bottomnav;
     ImageButton notificationBell;
     TextView notificationBadge;
     Realm badgeRealm;
-    Realm realm;
-    RequestAdapter requestAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_user_requests_lists);
+        setContentView(R.layout.activity_user_pending_request_list);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -53,43 +47,36 @@ public class UserRequestsLists extends AppCompatActivity {
         NotificationHelper.wireBell(this, notificationBell);
         badgeRealm = NotificationHelper.observeBadge(this, notificationBadge);
 
-        recyclerViewrequests = findViewById(R.id.recyclerViewrequests);
-        createRequest = findViewById(R.id.createRequest);
+        recyclerViewpendingRequests = findViewById(R.id.recyclerViewpendingRequests);
         home_bottomnav = findViewById(R.id.home_bottomnav);
         tracker_bottomnav = findViewById(R.id.tracker_bottomnav);
         settings_bottomnav = findViewById(R.id.settings_bottomnav);
-
         realm = Realm.getDefaultInstance();
-        String userUuid = getSharedPreferences("AppAyos", MODE_PRIVATE)
+        String technicianUuid = getSharedPreferences("AppAyos", MODE_PRIVATE)
                 .getString("user", "");
         RealmResults<Request> requests = realm.where(Request.class)
-                .equalTo("user", userUuid)
+                .equalTo("status", Request.STATUSES[1])
+                .equalTo("acceptedBy", technicianUuid)
                 .sort("createdAt", Sort.DESCENDING)
                 .findAll();
-        recyclerViewrequests.setLayoutManager(new LinearLayoutManager(this));
-        requestAdapter = new RequestAdapter(this, realm, requests);
-        recyclerViewrequests.setAdapter(requestAdapter);
-
-        createRequest.setOnClickListener(view ->
-                startActivity(new Intent(this, CreateRequest.class)));
-        home_bottomnav.setOnClickListener(view -> recreate());
-        tracker_bottomnav.setOnClickListener(view ->
-                startActivity(new Intent(this, Tracker.class)));
+        recyclerViewpendingRequests.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewpendingRequests.setAdapter(
+                new UserPendingRequestAdapter(this, realm, requests));
+        home_bottomnav.setOnClickListener(view ->
+                startActivity(new Intent(this, TechnicianRequestList.class)));
+        tracker_bottomnav.setOnClickListener(view -> recreate());
         settings_bottomnav.setOnClickListener(view ->
                 startActivity(new Intent(this, Settings.class)));
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        if (requestAdapter != null) {
-            requestAdapter.notifyDataSetChanged();
-        }
-    }
-
-    @Override
     protected void onDestroy() {
-        badgeRealm.close();
+        if (badgeRealm != null && !badgeRealm.isClosed()) {
+            badgeRealm.close();
+        }
+        if (realm != null && !realm.isClosed()) {
+            realm.close();
+        }
         super.onDestroy();
     }
 }

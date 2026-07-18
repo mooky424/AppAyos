@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -22,16 +24,20 @@ import java.util.UUID;
 import io.realm.Realm;
 import io.realm.Sort;
 
-public class EditRequest extends AppCompatActivity {
+public class UserRequestEdit extends AppCompatActivity {
 
     //for final proj
-    ImageButton editRequest_back; //imagebutton leads back to UserRequestsLists.java
+    ImageButton editRequest_back; //imagebutton leads back to UserRequestList.java
 
     ImageButton pressToUploadPhoto3;//user submits different image here
 
     EditText editrequestTitle_input; //user edits title here
 
     EditText editrequestDescription_input3; //user edits description here
+
+    ImageView editRequest_completionPhoto;
+    TextView editRequest_statusDescriptionLabel;
+    TextView editRequest_statusDescription;
 
     Button editRequest_button3; //submit edited request
     //end
@@ -46,7 +52,7 @@ public class EditRequest extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_edit_request);
+        setContentView(R.layout.activity_user_request_edit);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -57,6 +63,9 @@ public class EditRequest extends AppCompatActivity {
         pressToUploadPhoto3 = findViewById(R.id.pressToUploadphoto3);
         editrequestTitle_input = findViewById(R.id.editrequestTitle_input);
         editrequestDescription_input3 = findViewById(R.id.editrequestDescription_input3);
+        editRequest_completionPhoto = findViewById(R.id.editRequest_completionPhoto);
+        editRequest_statusDescriptionLabel = findViewById(R.id.editRequest_statusDescriptionLabel);
+        editRequest_statusDescription = findViewById(R.id.editRequest_statusDescription);
         editRequest_button3 = findViewById(R.id.editRequest_button3);
         realm = Realm.getDefaultInstance();
         requestUuid = getIntent().getStringExtra("REQUEST_UUID");
@@ -81,6 +90,28 @@ public class EditRequest extends AppCompatActivity {
                 .findFirst();
         if (requestPhoto != null) {
             showPhoto(requestPhoto.getPath());
+        }
+
+        if (Request.STATUSES[2].equals(request.getStatus())) {
+            editrequestTitle_input.setEnabled(false);
+            editrequestDescription_input3.setEnabled(false);
+            pressToUploadPhoto3.setEnabled(false);
+            editRequest_button3.setEnabled(false);
+
+            Photo completionPhoto = realm.where(Photo.class)
+                    .equalTo("request", requestUuid)
+                    .equalTo("type", Photo.TYPES[1])
+                    .sort("createdAt", Sort.DESCENDING)
+                    .findFirst();
+            if (completionPhoto != null && completionPhoto.getPath() != null) {
+                showCompletionPhoto(completionPhoto.getPath());
+            }
+            if (request.getStatusDescription() != null
+                    && !request.getStatusDescription().trim().isEmpty()) {
+                editRequest_statusDescriptionLabel.setVisibility(TextView.VISIBLE);
+                editRequest_statusDescription.setText(request.getStatusDescription());
+                editRequest_statusDescription.setVisibility(TextView.VISIBLE);
+            }
         }
 
         editRequest_back.setOnClickListener(view -> finish());
@@ -120,7 +151,7 @@ public class EditRequest extends AppCompatActivity {
                 photo.setRequest(requestUuid);
             }
         }, () -> {
-            Toast.makeText(EditRequest.this, "Request updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(UserRequestEdit.this, "Request updated", Toast.LENGTH_SHORT).show();
             finish();
         });
     }
@@ -141,6 +172,11 @@ public class EditRequest extends AppCompatActivity {
 
     private void showPhoto(String imagePath) {
         Picasso.get().load(new File(imagePath)).into(pressToUploadPhoto3);
+    }
+
+    private void showCompletionPhoto(String imagePath) {
+        editRequest_completionPhoto.setVisibility(ImageView.VISIBLE);
+        Picasso.get().load(new File(imagePath)).into(editRequest_completionPhoto);
     }
 
     @Override

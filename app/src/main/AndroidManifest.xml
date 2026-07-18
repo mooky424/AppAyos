@@ -62,7 +62,7 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-             android:name=".UserRequestsLists"
+             android:name=".UserRequestList"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
@@ -70,15 +70,15 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-             android:name=".Tracker"
+             android:name=".TechnicianRequestList"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-             android:name=".CreateRequest"
+             android:name=".UserRequestCreate"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-             android:name=".EditRequest"
+             android:name=".UserRequestEdit"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
@@ -86,23 +86,23 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-             android:name=".PendingRequests"
+             android:name=".UserPendingRequestList"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-             android:name=".CompleteRequest"
+             android:name=".TechnicianRequestComplete"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-             android:name=".UsersList"
+             android:name=".AdminUserList"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-             android:name=".EditUser"
+             android:name=".UserEditDetail"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-             android:name=".AdminEditUser"
+             android:name=".AdminUserEdit"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <meta-data

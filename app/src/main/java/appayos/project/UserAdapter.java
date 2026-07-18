@@ -40,7 +40,7 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User, UserAdapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.row_user, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.admin_user_row, parent, false);
         return new ViewHolder(view);
     }
 
