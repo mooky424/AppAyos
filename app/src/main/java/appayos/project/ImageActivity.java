@@ -1,6 +1,8 @@
 package appayos.project;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.ClipData;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,13 +15,16 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.core.content.ContextCompat;
 
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -37,6 +42,7 @@ public class ImageActivity extends AppCompatActivity
     public static int RESULT_CODE_IMAGE_TAKEN = 100;
     public static int MAX_WIDTH = 500;
     public static int MAX_HEIGHT = 500;
+    private static final int CAMERA_PERMISSION_REQUEST_CODE = 201;
 
 
 
@@ -112,7 +118,27 @@ public class ImageActivity extends AppCompatActivity
 
     public void capture()
     {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.CAMERA},
+                    CAMERA_PERMISSION_REQUEST_CODE);
+            return;
+        }
         startActivityForResult(getPickImageChooserIntent(), 200);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CAMERA_PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                capture();
+            } else {
+                Toast.makeText(this, "Camera permission is required", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     public void rotate()
@@ -223,6 +249,9 @@ public class ImageActivity extends AppCompatActivity
             intent.setPackage(res.activityInfo.packageName);
             if (outputFileUri != null) {
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION
+                        | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                intent.setClipData(ClipData.newRawUri("camera_output", outputFileUri));
             }
             allIntents.add(intent);
         }
@@ -248,8 +277,10 @@ public class ImageActivity extends AppCompatActivity
         }
         allIntents.remove(mainIntent);
 
-// Create a chooser from the main  intent
+        // Create a chooser from the main  intent
         Intent chooserIntent =  Intent.createChooser(mainIntent, "Select source");
+        chooserIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION
+                | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
 
 // Add all other intents
         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS,  allIntents.toArray(new Parcelable[allIntents.size()]));
