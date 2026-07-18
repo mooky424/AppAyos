@@ -44,7 +44,7 @@
         android:contentDescription="Notifications"
         android:scaleType="centerInside"
         android:src="@android:drawable/ic_popup_reminder"
-        android:tint="#271F30"
+        app:tint="#271F30"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
