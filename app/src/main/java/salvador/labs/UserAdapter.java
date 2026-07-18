@@ -26,8 +26,8 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User, UserAdapter.View
         TextView textUsername;
         TextView textPassword;
         ImageView imageIcon;
-        ImageButton buttonEdit;
-        ImageButton buttonDelete;
+//        ImageButton buttonEdit;
+//        ImageButton buttonDelete;
 
 
         public ViewHolder(View itemView) {
@@ -36,8 +36,8 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User, UserAdapter.View
             textUsername = itemView.findViewById(R.id.username);
             textPassword = itemView.findViewById(R.id.password);
             imageIcon = itemView.findViewById(R.id.imageIcon);
-            buttonEdit = itemView.findViewById(R.id.edit);
-            buttonDelete = itemView.findViewById(R.id.delete);
+//            buttonEdit = itemView.findViewById(R.id.edit);
+//            buttonDelete = itemView.findViewById(R.id.delete);
         }
     }
 
@@ -72,27 +72,27 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User, UserAdapter.View
         } else {
             holder.imageIcon.setImageResource(R.mipmap.ic_launcher);
         }
-        holder.buttonEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, Edit.class);
-                intent.putExtra("UUID", userUuid);
-                activity.startActivity(intent);
-            }
-        });
-
-        holder.buttonDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.realm.executeTransactionAsync(new Realm.Transaction() {
-                    @Override
-                    public void execute(Realm realm) {
-                        User user = realm.where(User.class).equalTo("uuid", userUuid).findFirst();
-                        user.deleteFromRealm();
-                    }
-                });
-            }
-        });
+//        holder.buttonEdit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(activity, Edit.class);
+//                intent.putExtra("UUID", userUuid);
+//                activity.startActivity(intent);
+//            }
+//        });
+//
+//        holder.buttonDelete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                activity.realm.executeTransactionAsync(new Realm.Transaction() {
+//                    @Override
+//                    public void execute(Realm realm) {
+//                        User user = realm.where(User.class).equalTo("uuid", userUuid).findFirst();
+//                        user.deleteFromRealm();
+//                    }
+//                });
+//            }
+//        });
     }
 
 
